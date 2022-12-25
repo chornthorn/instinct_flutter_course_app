@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_exercise_app/views/dashboard_page.dart';
-import 'package:flutter_exercise_app/views/home_page.dart';
+
+import 'components/about_listview_widget.dart';
 
 // set of style
 
@@ -11,15 +12,34 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return   MaterialApp(
+    return MaterialApp(
       theme: ThemeData(
-        primarySwatch: Colors.blue,
-        appBarTheme: AppBarTheme(
-          elevation: 0,
-        )
-      ),
-      home: DashboardPage(),
-      // home: HomePage(),
+          primarySwatch: Colors.blue,
+          appBarTheme: AppBarTheme(
+            elevation: 0,
+          )),
+      //home: DashboardPage(),
+      // routes: {
+      //   '/': (context) => DashboardPage(),
+      //   '/product_detail': (context) => ProductDetailPage(),
+      //   '/home': (context) => HomePage(),
+      // },
+      initialRoute: '/',
+      onGenerateRoute: (settings) {
+        if (settings.name == '/') {
+          return MaterialPageRoute(
+            builder: (context) => DashboardPage(),
+          );
+        } else if (settings.name == '/product_detail') {
+          final args = settings.arguments as Product;
+          return MaterialPageRoute(
+            builder: (context) => ProductDetailPage(
+              product: args,
+            ),
+          );
+        }
+        return null;
+      },
     );
   }
 }
