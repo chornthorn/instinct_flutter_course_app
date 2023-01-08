@@ -1,11 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_exercise_app/views/dashboard_page.dart';
 
 import 'components/about_listview_widget.dart';
 
 // set of style
 
-void main() => runApp(MyApp());
+void main() {
+  runApp(MyApp());
+
+  // application should available in portrait mode only
+  // SystemChrome.setPreferredOrientations([
+  //   DeviceOrientation.portraitUp,
+  //   DeviceOrientation.portraitDown,
+  // ]);
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);

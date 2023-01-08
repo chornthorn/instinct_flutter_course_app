@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_exercise_app/components/about_text_view.dart';
 
 import '../components/about_container_widget.dart';
+import '../components/about_grid_view_widget.dart';
 import '../components/about_image_widget.dart';
 import '../components/about_listview_widget.dart';
 import '../components/about_row_column_widget.dart';
@@ -19,7 +20,7 @@ class DashboardPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Dashboard'),
       ),
-      body: AboutListViewWidget(),
+      body: AboutGridViewWidget(),
     );
   }
 }
